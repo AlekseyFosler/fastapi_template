@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "fastapi-template"
+version = "0.1.0"
+description = "Проект на основе FastAPI, предназначенный для быстрой разработки веб-приложений на Python"
+authors = ["Aleksey Fosler"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = {extras = ["all"], version = "^0.111.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.13.2"
+blue = "^0.9.1"
+pre-commit = "^3.7.0"
+mypy = "^1.10.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.blue]
+line-length = 120
+
+[tool.isort]
+line_length = 120
+multi_line_output = 9
