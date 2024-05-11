@@ -1,7 +1,7 @@
 import uvicorn
 from fastapi import FastAPI
 from fastapi.openapi.docs import get_redoc_html, get_swagger_ui_html
-from fastapi.responses import ORJSONResponse
+from fastapi.responses import HTMLResponse, ORJSONResponse
 from settings import settings
 from starlette.staticfiles import StaticFiles
 
@@ -18,7 +18,7 @@ app = FastAPI(
 
 
 @app.get('/docs', include_in_schema=False)
-async def custom_swagger_ui_html():
+async def custom_swagger_ui_html() -> HTMLResponse:
     return get_swagger_ui_html(
         openapi_url=settings.OPENAPI_URL,
         title=settings.TITLE,
@@ -28,7 +28,7 @@ async def custom_swagger_ui_html():
 
 
 @app.get('/redoc', include_in_schema=False)
-async def redoc_html():
+async def redoc_html() -> HTMLResponse:
     return get_redoc_html(
         openapi_url=settings.OPENAPI_URL,
         title=settings.TITLE,
