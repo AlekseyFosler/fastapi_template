@@ -1,5 +1,6 @@
 import logging
 
+from app.enums import TemplateEnum, TemplateIntEnum, TemplateStrEnum
 from app.models import TemplateDeleteOutput, TemplateGetOutput, TemplatePostInput, TemplatePostOutput, TemplatePutInput
 from app.models import TemplatePutOutput
 
@@ -14,6 +15,11 @@ class TemplateService:
             template_int=1,
             template_UUID4='f310e0ab-e8ba-43a0-8c50-12c95827bc21',
             template_float=3.14,
+            template_str_enum=TemplateStrEnum.THREE,
+            template_int_enum=TemplateIntEnum.ONE,
+            template_enum=TemplateEnum.THIRD,
+            template_literal='a',
+            template_string_constraints_type='AZ',
         )
 
     @staticmethod
