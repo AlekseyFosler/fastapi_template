@@ -2,10 +2,10 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.openapi.docs import get_redoc_html, get_swagger_ui_html
 from fastapi.responses import HTMLResponse, ORJSONResponse
-from settings import settings
 from starlette.staticfiles import StaticFiles
 
 from app.routers import router
+from app.settings import settings
 
 app = FastAPI(
     title=settings.TITLE,
@@ -36,7 +36,7 @@ async def redoc_html() -> HTMLResponse:
     )
 
 
-app.mount('/static', StaticFiles(directory='static'), name='static')
+app.mount('/static', StaticFiles(directory='app/static'), name='static')
 
 app.include_router(router)
 
