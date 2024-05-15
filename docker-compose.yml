@@ -1,0 +1,12 @@
+services:
+  fastapi_template:
+    container_name: fastapi_template
+    hostname: fastapi_template
+    build:
+      context: .
+      dockerfile: src/app/Dockerfile
+    restart: on-failure
+    env_file:
+      - ./src/app/.env
+    ports:
+      - 8000:8000
