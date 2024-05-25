@@ -1,8 +1,8 @@
 import logging
 
 from app.enums import TemplateEnum, TemplateIntEnum, TemplateStrEnum
-from app.models import TemplateDeleteOutput, TemplateGetOutput, TemplatePostInput, TemplatePostOutput, TemplatePutInput
-from app.models import TemplatePutOutput
+from app.schemes import TemplateDeleteOutput, TemplateGetOutput, TemplatePostInput, TemplatePostOutput
+from app.schemes import TemplatePutInput, TemplatePutOutput
 
 logger = logging.getLogger('default')
 
@@ -23,12 +23,16 @@ class TemplateService:
         )
 
     @staticmethod
-    async def get_templates(template_post_input: TemplatePostInput) -> TemplatePostOutput:
+    async def get_templates(
+        template_post_input: TemplatePostInput,
+    ) -> TemplatePostOutput:
         logger.warning(f'{template_post_input=}')
         return TemplatePostOutput.model_validate(template_post_input, from_attributes=True)
 
     @staticmethod
-    async def put_template(template_put_input: TemplatePutInput) -> TemplatePutOutput:
+    async def put_template(
+        template_put_input: TemplatePutInput,
+    ) -> TemplatePutOutput:
         logger.warning(f'{template_put_input=}')
         return TemplatePutOutput.model_validate(template_put_input, from_attributes=True)
 

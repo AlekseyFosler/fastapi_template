@@ -1,13 +1,5 @@
-from app.models.template_models import TemplateDeleteInput, TemplateDeleteOutput, TemplateGetInput, TemplateGetOutput
-from app.models.template_models import TemplatePostInput, TemplatePostOutput, TemplatePutInput, TemplatePutOutput
+from app.models.user import User
 
 __all__ = [
-    'TemplateGetInput',
-    'TemplateGetOutput',
-    'TemplatePostInput',
-    'TemplatePostOutput',
-    'TemplatePutInput',
-    'TemplatePutOutput',
-    'TemplateDeleteInput',
-    'TemplateDeleteOutput',
+    'User',
 ]
