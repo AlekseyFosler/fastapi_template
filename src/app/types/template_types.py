@@ -8,7 +8,9 @@ __template_fields = Field(title='title', description='description')
 
 TemplateStrType = Annotated[str, __template_fields]
 TemplateStringConstraintsType = Annotated[
-    str, StringConstraints(strip_whitespace=True, to_upper=True, pattern=r'^[A-Z]+$'), __template_fields
+    str,
+    StringConstraints(strip_whitespace=True, to_upper=True, pattern=r'^[A-Z]+$'),
+    __template_fields,
 ]
 TemplateIntType = Annotated[int, __template_fields]
 TemplateUUID4Type = Annotated[UUID4, __template_fields]
