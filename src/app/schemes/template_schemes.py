@@ -1,7 +1,8 @@
 from pydantic import BaseModel, Field
 
-from app.types import TemplateEnumType, TemplateFloatType, TemplateIntEnumType, TemplateIntType, TemplateLiteralType
-from app.types import TemplateStrEnumType, TemplateStringConstraintsType, TemplateStrType, TemplateUUID4Type
+from app.micro_types import TemplateEnumType, TemplateFloatType, TemplateIntEnumType, TemplateIntType
+from app.micro_types import TemplateLiteralType, TemplateStrEnumType, TemplateStringConstraintsType, TemplateStrType
+from app.micro_types import TemplateUUID4Type
 
 
 class TemplateModelBase(BaseModel):

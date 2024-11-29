@@ -13,7 +13,10 @@ class UserService:
         self.transaction = transaction
         self.user_repository = user_repository
 
-    async def add(self, user: RequestUser) -> ResponseUser:
+    async def add(
+        self,
+        user: RequestUser,
+    ) -> ResponseUser:
         async with self.transaction:
             is_exist: bool = await self.user_repository.check_by_mobile_phone(user.mobile_phone)
             if is_exist:
@@ -30,7 +33,10 @@ class UserService:
                 )
             return result
 
-    async def get_by_id(self, user_id: UUID) -> ResponseUser:
+    async def get_by_id(
+        self,
+        user_id: UUID,
+    ) -> ResponseUser:
         async with self.transaction:
             user: ResponseUser | None = await self.user_repository.get_by_id(user_id)
             if not user:
@@ -40,6 +46,8 @@ class UserService:
                 )
             return user
 
-    async def get_all(self) -> list[ResponseBriefUser]:
+    async def get_all(
+        self,
+    ) -> list[ResponseBriefUser]:
         async with self.transaction:
             return await self.user_repository.get_all()

@@ -1,8 +1,7 @@
-from dataclasses import asdict
 from typing import Optional, Sequence
 from uuid import UUID
 
-from sqlalchemy import Result, exists, select
+from sqlalchemy import Result, and_, exists, select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import load_only
 
@@ -22,7 +21,7 @@ class UserRepository:
         return ResponseUser.model_validate(result, from_attributes=True)
 
     async def get_by_id(self, user_id: UUID) -> Optional[ResponseUser]:
-        stmt = select(User).where(User.user_id == user_id)
+        stmt = select(User).where(and_(User.user_id == user_id))
         cursor: Result = await self.transaction.execute(stmt)
         result: Optional[User] = cursor.scalar_one_or_none()
         return ResponseUser.model_validate(result, from_attributes=True) if result else None
@@ -34,6 +33,6 @@ class UserRepository:
         return [ResponseBriefUser.model_validate(_, from_attributes=True) for _ in result] if result else []
 
     async def check_by_mobile_phone(self, mobile_phone: str) -> bool:
-        stmt = select(exists(User.user_id).where(User.mobile_phone == mobile_phone))
+        stmt = select(exists(User.user_id).where(and_(User.mobile_phone == mobile_phone)))
         cursor: Result = await self.transaction.execute(stmt)
         return cursor.scalar()
