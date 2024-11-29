@@ -20,11 +20,11 @@ async def lifespan(app: FastAPI):  # noqa
 
 
 app = FastAPI(
-    title=settings.TITLE,
-    version=settings.VERSION,
+    title=settings.app.TITLE,
+    version=settings.app.VERSION,
     docs_url=None,
     redoc_url=None,
-    openapi_url=settings.OPENAPI_URL,
+    openapi_url=settings.app.OPENAPI_URL,
     default_response_class=ORJSONResponse,
     lifespan=lifespan,
 )
@@ -41,8 +41,8 @@ app.add_middleware(
 @app.get('/docs', include_in_schema=False)
 async def custom_swagger_ui_html() -> HTMLResponse:
     return get_swagger_ui_html(
-        openapi_url=settings.OPENAPI_URL,
-        title=settings.TITLE,
+        openapi_url=settings.app.OPENAPI_URL,
+        title=settings.app.TITLE,
         swagger_js_url='/static/swagger-ui-bundle.js',
         swagger_css_url='/static/swagger-ui.css',
     )
@@ -51,8 +51,8 @@ async def custom_swagger_ui_html() -> HTMLResponse:
 @app.get('/redoc', include_in_schema=False)
 async def redoc_html() -> HTMLResponse:
     return get_redoc_html(
-        openapi_url=settings.OPENAPI_URL,
-        title=settings.TITLE,
+        openapi_url=settings.app.OPENAPI_URL,
+        title=settings.app.TITLE,
         redoc_js_url='/static/redoc.standalone.js',
     )
 
@@ -64,9 +64,9 @@ app.include_router(router)
 if __name__ == '__main__':
     uvicorn.run(
         app='main:app',
-        host=settings.SERVER_HOST,
-        port=settings.SERVER_PORT,
-        log_level=settings.LOG_LEVEL,
-        reload=settings.DEVELOP,
-        use_colors=settings.DEVELOP,
+        host=settings.app.SERVER_HOST,
+        port=settings.app.SERVER_PORT,
+        log_level=settings.app.LOG_LEVEL,
+        reload=settings.app.DEVELOP,
+        use_colors=settings.app.DEVELOP,
     )

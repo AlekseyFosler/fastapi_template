@@ -5,7 +5,7 @@ from sqlalchemy import Result, and_, exists, select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import load_only
 
-from app.database import Transaction
+from app.engines.postgres import Transaction
 from app.models import User
 from app.schemes import RequestUser, ResponseBriefUser, ResponseUser
 

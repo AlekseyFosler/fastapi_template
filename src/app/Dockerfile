@@ -15,8 +15,8 @@ RUN poetry install --only main
 
 COPY ./src/app app
 
-CMD gunicorn app.main:app \
-    --workers ${WORKERS} \
-    --worker-class uvicorn.workers.UvicornWorker \
-    --bind 0.0.0.0:8000 \
-    --log-level warning
+CMD uvicorn app.main:app \
+    --host "0.0.0.0" \
+    --port 8000 \
+    --workers ${APP_WORKERS} \
+    --log-level ${APP_LOG_LEVEL}

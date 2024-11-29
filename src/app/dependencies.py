@@ -1,6 +1,6 @@
 from rodi import Container
 
-from app.database import Engine, Transaction
+from app.engines.postgres import Engine, Transaction
 from app.repositories import UserRepository
 from app.services import TemplateService, UserService
 

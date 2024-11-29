@@ -3,7 +3,7 @@ from uuid import UUID
 
 from fastapi import HTTPException
 
-from app.database import Transaction
+from app.engines.postgres import Transaction
 from app.repositories import UserRepository
 from app.schemes import RequestUser, ResponseBriefUser, ResponseUser
 
