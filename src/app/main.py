@@ -8,9 +8,9 @@ from fastapi.responses import ORJSONResponse
 from starlette.responses import HTMLResponse
 from starlette.staticfiles import StaticFiles
 
-from app.dependencies import init_dependencies
-from app.routers import router
-from app.settings import settings
+from src.app.dependencies import init_dependencies
+from src.app.routers import router
+from src.app.settings import settings
 
 
 @asynccontextmanager
@@ -22,8 +22,8 @@ async def lifespan(app: FastAPI):  # noqa
 app = FastAPI(
     title=settings.app.TITLE,
     version=settings.app.VERSION,
-    docs_url=None,
-    redoc_url=None,
+    # docs_url=None,
+    # redoc_url=None,
     openapi_url=settings.app.OPENAPI_URL,
     default_response_class=ORJSONResponse,
     lifespan=lifespan,
@@ -57,7 +57,7 @@ async def redoc_html() -> HTMLResponse:
     )
 
 
-app.mount('/static', StaticFiles(directory='app/static'), name='static')
+app.mount('/static', StaticFiles(directory='/src/app/static', check_dir=False), name='static')
 
 app.include_router(router)
 

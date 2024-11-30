@@ -1,15 +1,15 @@
 import logging
 
 import backoff
-from clickhouse_driver import Client  # type: ignore
-from clickhouse_driver.errors import NetworkError, ServerException  # type: ignore
+from clickhouse_driver import Client
+from clickhouse_driver.errors import NetworkError, ServerException
 
-from src.config import settings
+from src.app.settings import settings
 
 logger = logging.getLogger(__name__)
 
 
-class Engine:
+class ClickHouseEngine:
     def __init__(self):
         self.connection = Client(
             host=settings.clickhouse.HOST,

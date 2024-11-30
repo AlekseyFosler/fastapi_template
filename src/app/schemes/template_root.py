@@ -1,6 +1,6 @@
 from pydantic import UUID4, Field, RootModel
 
-from app.micro_types import ATemplateStates, ATemplateUsers
+from src.app.micro_types import ATemplateStates, ATemplateUsers
 
 
 class TemplateStates(RootModel):

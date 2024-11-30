@@ -1,8 +1,8 @@
 from fastapi import APIRouter, Depends
 
-from app.schemes import TemplateDeleteInput, TemplateDeleteOutput, TemplateGetOutput, TemplatePostInput
-from app.schemes import TemplatePostOutput, TemplatePutInput, TemplatePutOutput
-from app.services import TemplateService
+from src.app.schemes import TemplateDeleteInput, TemplateDeleteOutput, TemplateGetOutput, TemplatePostInput
+from src.app.schemes import TemplatePostOutput, TemplatePutInput, TemplatePutOutput
+from src.app.services import TemplateService
 
 router = APIRouter(prefix='/template', tags=['Templates'])
 

@@ -2,9 +2,9 @@ from uuid import UUID
 
 from fastapi import APIRouter, Depends
 
-from app.dependencies import get_user_service
-from app.schemes import RequestUser, ResponseBriefUser, ResponseUser
-from app.services import UserService
+from src.app.dependencies import get_user_service
+from src.app.schemes import RequestUser, ResponseBriefUser, ResponseUser
+from src.app.services import UserService
 
 router = APIRouter(prefix='/user', tags=['Users'])
 

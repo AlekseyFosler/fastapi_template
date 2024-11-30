@@ -1,8 +1,7 @@
-from app.micro_types.template_root import ATemplateStates, ATemplateUsers, TemplateData, TemplateStatesUuid
-from app.micro_types.template_root import TemplateUserUuid
-from app.micro_types.template_types import TemplateEnumType, TemplateFloatType, TemplateIntEnumType, TemplateIntType
-from app.micro_types.template_types import TemplateLiteralType, TemplateStrEnumType, TemplateStringConstraintsType
-from app.micro_types.template_types import TemplateStrType, TemplateUUID4Type
+from .template_root import ATemplateStates, ATemplateUsers, TemplateData, TemplateStatesUuid, TemplateUserUuid
+from .template_types import TemplateEnumType, TemplateFloatType, TemplateIntEnumType, TemplateIntType
+from .template_types import TemplateLiteralType, TemplateStrEnumType, TemplateStringConstraintsType, TemplateStrType
+from .template_types import TemplateUUID4Type
 
 __all__ = (
     'TemplateStrType',

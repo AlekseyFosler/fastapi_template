@@ -3,7 +3,8 @@ from asyncpg.exceptions import TooManyConnectionsError  # type: ignore
 from sqlalchemy import Result
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.settings import settings
+from src.app.settings import settings
+
 from .engine import Engine
 
 

@@ -1,3 +1,3 @@
-from src.engines.clickhouse.clickhouse import Engine
+from .clickhouse import ClickHouseEngine
 
-__all__ = ('Engine',)
+__all__ = ('ClickHouseEngine',)

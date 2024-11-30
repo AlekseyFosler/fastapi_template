@@ -5,9 +5,9 @@ from sqlalchemy import Result, and_, exists, select
 from sqlalchemy.dialects.postgresql import insert
 from sqlalchemy.orm import load_only
 
-from app.engines.postgres import Transaction
-from app.models import User
-from app.schemes import RequestUser, ResponseBriefUser, ResponseUser
+from src.app.engines.postgres import Transaction
+from src.app.models import User
+from src.app.schemes import RequestUser, ResponseBriefUser, ResponseUser
 
 
 class UserRepository:

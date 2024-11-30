@@ -1,9 +1,9 @@
 import logging
 from uuid import UUID
 
-from app.enums import TemplateEnum, TemplateIntEnum, TemplateStrEnum
-from app.schemes import TemplateDeleteOutput, TemplateGetOutput, TemplatePostInput, TemplatePostOutput
-from app.schemes import TemplatePutInput, TemplatePutOutput
+from src.app.enums import TemplateEnum, TemplateIntEnum, TemplateStrEnum
+from src.app.schemes import TemplateDeleteOutput, TemplateGetOutput, TemplatePostInput, TemplatePostOutput
+from src.app.schemes import TemplatePutInput, TemplatePutOutput
 
 logger = logging.getLogger('default')
 

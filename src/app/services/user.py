@@ -3,9 +3,9 @@ from uuid import UUID
 
 from fastapi import HTTPException
 
-from app.engines.postgres import Transaction
-from app.repositories import UserRepository
-from app.schemes import RequestUser, ResponseBriefUser, ResponseUser
+from src.app.engines.postgres import Transaction
+from src.app.repositories import UserRepository
+from src.app.schemes import RequestUser, ResponseBriefUser, ResponseUser
 
 
 class UserService:

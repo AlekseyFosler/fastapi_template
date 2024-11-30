@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from app.schemes import TemplateTest, TemplateUsers
+from src.app.schemes import TemplateTest, TemplateUsers
 
 router = APIRouter(prefix='/template_root', tags=['Template Root'])
 

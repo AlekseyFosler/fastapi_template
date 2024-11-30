@@ -2,7 +2,7 @@ from typing import Annotated, Literal
 
 from pydantic import UUID4, Field, StringConstraints
 
-from app.enums import TemplateEnum, TemplateIntEnum, TemplateStrEnum
+from src.app.enums import TemplateEnum, TemplateIntEnum, TemplateStrEnum
 
 __template_fields = Field(
     title='title',
